@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		65BC0DC52FB184030069C7CB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65BC0DC42FB184030069C7CB /* SDWebImageSwiftUI */; };
+		65BC0DD92FB18B640069C7CB /* SwiftfulUI in Frameworks */ = {isa = PBXBuildFile; productRef = 65BC0DD82FB18B640069C7CB /* SwiftfulUI */; };
+		65BC0DDC2FB18B970069C7CB /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = 65BC0DDB2FB18B970069C7CB /* SwiftfulRouting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BC0DD92FB18B640069C7CB /* SwiftfulUI in Frameworks */,
+				65BC0DDC2FB18B970069C7CB /* SwiftfulRouting in Frameworks */,
 				65BC0DC52FB184030069C7CB /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +88,8 @@
 			name = TuneIn;
 			packageProductDependencies = (
 				65BC0DC42FB184030069C7CB /* SDWebImageSwiftUI */,
+				65BC0DD82FB18B640069C7CB /* SwiftfulUI */,
+				65BC0DDB2FB18B970069C7CB /* SwiftfulRouting */,
 			);
 			productName = TuneIn;
 			productReference = 65BC0DB02FB183550069C7CB /* TuneIn.app */;
@@ -115,6 +121,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				65BC0DC32FB184030069C7CB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				65BC0DD72FB18B640069C7CB /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
+				65BC0DDA2FB18B970069C7CB /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 65BC0DB12FB183550069C7CB /* Products */;
@@ -385,6 +393,22 @@
 				minimumVersion = 3.1.4;
 			};
 		};
+		65BC0DD72FB18B640069C7CB /* XCRemoteSwiftPackageReference "SwiftfulUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
+		65BC0DDA2FB18B970069C7CB /* XCRemoteSwiftPackageReference "SwiftfulRouting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulRouting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -392,6 +416,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 65BC0DC32FB184030069C7CB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		65BC0DD82FB18B640069C7CB /* SwiftfulUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65BC0DD72FB18B640069C7CB /* XCRemoteSwiftPackageReference "SwiftfulUI" */;
+			productName = SwiftfulUI;
+		};
+		65BC0DDB2FB18B970069C7CB /* SwiftfulRouting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65BC0DDA2FB18B970069C7CB /* XCRemoteSwiftPackageReference "SwiftfulRouting" */;
+			productName = SwiftfulRouting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
