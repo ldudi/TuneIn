@@ -18,9 +18,15 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 ForEach(products) { product in
-                    Text(product.title)
+                    HStack {
+                        RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+                            .frame(width: 21, height: 21)
+                            .foregroundStyle(.pink)
+                        Text(product.title)
+                            .foregroundStyle(.spotifyGreen)
+                    }
                 }
             }
         }
