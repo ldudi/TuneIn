@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftfulUI
 
 struct SpotifyHomeView: View {
     
     @State private var currentUser: User? = nil
     @State private var selectedCategory: Category? = nil
+    @State private var products: [Product] = []
     
     var body: some View {
         ZStack {
@@ -18,8 +20,23 @@ struct SpotifyHomeView: View {
             
             ScrollView(.vertical) {
                 
-                LazyVStack(spacing: 1, pinnedViews: [.sectionHeaders], content: {
-                    Section {
+                LazyVStack(
+                    spacing: 1,
+                    pinnedViews: [.sectionHeaders],
+                    content: {
+                        Section {
+                            
+                            VStack(spacing: 16) {
+                                recentSection
+                                
+                                if let product = products.first {
+                                    newReleaseSection(product: product)
+                                }
+                                
+                                
+                        }
+                        .padding(.horizontal, 16)
+                        
                         ForEach(0..<20) { _ in
                             Rectangle()
                                 .fill(.red)
@@ -42,6 +59,7 @@ struct SpotifyHomeView: View {
     private func getData() async {
         do {
             currentUser = try await DatabaseHelper().getUsers().first
+            products = try await Array(DatabaseHelper().getProducts().prefix(8))
         } catch {
             
         }
@@ -84,6 +102,33 @@ struct SpotifyHomeView: View {
         .padding(.vertical, 24)
         .padding(.horizontal, 8)
         .background(Color.spotifyBlack)
+    }
+    
+    private var recentSection: some View {
+        NonLazyVGrid(columns: 2, alignment: .center, spacing: 10, items: products) { product in
+            if let product {
+                SpotifyRecentsCell(
+                    imageName: product.firstImage,
+                    title: product.title
+                )
+            }
+        }
+    }
+    
+    private func newReleaseSection(product: Product) -> some View {
+        SpotifyNewReleaseCell(
+            imageName: product.firstImage,
+            headline: product.brand,
+            subheadline: product.category,
+            title: product.title,
+            subtitle: product.description,
+            onAddToPlaylistPressed: {
+                
+            },
+            onPlayPressed: {
+                
+            }
+        )
     }
     
 }
