@@ -13,7 +13,7 @@ struct SpotifyCategoryCell: View {
     var isSelected: Bool = false
     
     var body: some View {
-        Text(title)
+        Text(title.capitalized)
             .font(.callout)
             .frame(minWidth: 35)
             .padding(.vertical, 8)
