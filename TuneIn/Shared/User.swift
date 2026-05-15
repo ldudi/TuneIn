@@ -27,4 +27,30 @@ struct User: Codable, Identifiable {
     let ip: String
     let macAddress, university: String
     let ein, ssn, userAgent: String
+    
+    static var mock: User {
+        User(
+            id: 444,
+            firstName: "Nick",
+            lastName: "Sarno",
+            maidenName: "",
+            age: 76,
+            email: "hi@hi.com",
+            phone: "",
+            username: "",
+            password: "",
+            birthDate: "",
+            image: Constants.randomImage,
+            bloodGroup: "",
+            height: 180,
+            weight: 200,
+            eyeColor: "",
+            ip: "",
+            macAddress: "",
+            university: "",
+            ein: "",
+            ssn: "",
+            userAgent: ""
+        )
+    }
 }
