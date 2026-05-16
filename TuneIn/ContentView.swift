@@ -12,36 +12,15 @@ import SwiftfulRouting
 
 struct ContentView: View {
     
-    
-    @State private var users: [User] = []
-    @State private var products: [Product] = []
+    @Environment(\.router) var router
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ForEach(products) { product in
-                    HStack {
-                        RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
-                            .frame(width: 21, height: 21)
-                            .foregroundStyle(.pink)
-                        Text(product.title)
-                            .foregroundStyle(.spotifyGreen)
-                    }
+        List {
+            Button("Open Spotify") {
+                router.showScreen(.fullScreenCover) { _ in
+                    SpotifyHomeView()
                 }
             }
-        }
-        .padding()
-        .task {
-            await getData()
-        }
-    }
-    
-    private func getData() async {
-        do {
-            users = try await DatabaseHelper().getUsers()
-            products = try await DatabaseHelper().getProducts()
-        } catch {
-            
         }
     }
     
@@ -104,6 +83,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    RouterView { _ in    
+        ContentView()
+    }
 }
